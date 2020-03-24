@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Gops</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="SD">
+        <item>Anand</item>
+        <item>Nadiad</item>
+        <item>Ahmedabad</item>
+        <item>Mahemadavad</item>
+        <item>Nenpur</item>
+        <item>Gothaj</item>
+        <item>Utarsanda</item>
+        <item>Boriyavi</item>
+        <item>Barjadi</item>
+        <item>Vatva</item>
+        <item>Ahmedabad Jasoda X</item>
+        <item>Mahemdavad Khatraj X</item>
+
+
+    </string-array>
+    <string-array name="bus_type">
+        <item>Local</item>
+        <item>Express</item>
+        <item>Super Fast</item>
+    </string-array>
+    <string-array name="pass_type">
+        <item>Student Pass</item>
+        <item>Reguler Pass</item>
+    </string-array>
+    <string-array name="month">
+
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+
+    </string-array>
+    <string-array name="idproof_name">
+        <item>Aadhar Card</item>
+        <item>Election Card</item>
+        <item>Passport</item>
+        <item>Driving Licence</item>
+    </string-array>
+
+
+</resources>

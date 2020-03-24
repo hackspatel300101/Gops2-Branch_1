@@ -1,0 +1,350 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_grd"
+    tools:context="Fragment.new_pass1">
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/audiowide"
+                    android:text="Pass Issue"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="34dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.053"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.507" />
+
+                <ImageView
+                    android:id="@+id/newpass1"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/logo300x300"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/bust"
+                    android:layout_width="63dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="40dp"
+                    android:text="Bus Type"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="bold|italic" />
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/btype"
+                    android:layout_width="201dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="40dp"
+                    android:hint="Select Type"
+                    android:pointerIcon="text"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textColorHighlight="@color/colorPrimaryDark"
+
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/passt"
+                    android:layout_width="63dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="40dp"
+                    android:text="Pass type"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="bold|italic" />
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/p_type"
+                    android:layout_width="201dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/bg_grd"
+                    android:hint="Select Type"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textColorHighlight="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textStyle="italic|bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/du_ration"
+                    android:layout_width="110dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="30dp"
+
+                    android:text="Duration(Month)"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="bold|italic" />
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/duration"
+                    android:layout_width="201dp"
+                    android:layout_height="50dp"
+
+                    android:background="@drawable/bg_grd"
+                    android:hint="Select"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textColorHighlight="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="294dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/btn_shape"
+                    android:hint="Full Name"
+                    android:singleLine="true"
+                    android:textColor="@color/tranplate"
+
+                    android:textStyle="bold|italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/gn"
+                    android:layout_width="63dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+
+
+                    android:text="Gender"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="bold|italic" />
+
+                <RadioGroup
+                    android:id="@+id/rg"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/male"
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:text="Male"
+                        android:textColor="@color/tranplate"
+                        android:textStyle="bold|italic" />
+
+                    <RadioButton
+                        android:id="@+id/female"
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:text="Female"
+                        android:textColor="@color/tranplate"
+                        android:textStyle="bold|italic" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/b_date"
+                        android:layout_width="115dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/btn_shape"
+                        android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                        android:text="birthday"
+                        android:textColor="@color/tranplate" />
+
+                    <TextView
+                        android:layout_width="93dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/age"
+                        android:layout_width="93dp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/tranplate"
+                        android:textStyle="bold|italic"
+
+                        />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/id_proof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:text="Select ID proof"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="italic|bold" />
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/idproof"
+                    android:layout_width="303dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:hint="Select"
+                    android:textAlignment="center"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="italic|bold" />
+
+
+                <EditText
+                    android:id="@+id/idnumber"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_shape"
+                    android:hint="ID Number"
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:singleLine="true"
+                    android:textColor="@color/tranplate" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Adress:"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="bold|italic"
+
+                    />
+
+                <EditText
+                    android:id="@+id/add"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_shape"
+                    android:singleLine="true"
+                    android:textColor="@color/tranplate"
+                    android:textStyle="bold|italic" />
+
+                <Button
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/btn_shape"
+                    android:text="Next" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

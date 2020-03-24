@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#1d2243</color>
+    <color name="colorAccent">#6e3fdc</color>
+    <color name="tranplate">#000000</color>
+    <color name="g_start">#19aa8b</color>
+    <color name="g_end">#23A7DB</color>
+    <color name="layout">#e2dada</color>
+    <color name="Red">#f70303</color>
+    <color name="btn">#9f1db6</color>
+    <color name="bc">#6bfaa5</color>
+    <color name="ren">#339dd6</color>
+    <color name="pass">#0c4805</color>
+
+
+
+</resources>
