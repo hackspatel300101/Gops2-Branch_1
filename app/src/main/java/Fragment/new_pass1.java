@@ -26,17 +26,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chintu.Gops.APIClient;
-import com.example.chintu.Gops.APIinterface;
 import com.example.chintu.Gops.R;
-import com.example.chintu.Gops.WEbService.ApiCallback;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import Model.Contact;
-import Model.Mobile;
+
 import hari.bounceview.BounceView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +42,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class new_pass1 extends android.app.Fragment implements ApiCallback {
+public class new_pass1 extends android.app.Fragment  {
 
     ImageView iv;
     MaterialBetterSpinner mb, mb1, mb2, mb3;
@@ -66,7 +62,7 @@ public class new_pass1 extends android.app.Fragment implements ApiCallback {
 
     static View v;
     ArrayList<String> imageList = new ArrayList<>();
-    ArrayList<Mobile> arrayList;
+
     String dsnmae, dgender, dage, dmobile, denroll, dinstitutename;
 
     RadioButton r1, r2;
@@ -98,7 +94,7 @@ public class new_pass1 extends android.app.Fragment implements ApiCallback {
         tv4 = v.findViewById(R.id.gn);
         tv5 = v.findViewById(R.id.id_proof);
         tv6 = v.findViewById(R.id.address);
-        arrayList = new ArrayList<>();
+
         r1 = v.findViewById(R.id.male);
         r2 = v.findViewById(R.id.female);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -195,20 +191,9 @@ public class new_pass1 extends android.app.Fragment implements ApiCallback {
                         pd.setTitle("Loading Information");
                         pd.setMessage("Please Wait");
                         pd.show();
-                        APIinterface apIinterface = APIClient.getClient().create(APIinterface.class);
-                        Call<Contact> call = apIinterface.getdetail("8469000537");
-                        call.enqueue(new Callback<Contact>() {
-                            @Override
-                            public void onResponse(Call<Contact> call, Response<Contact> response) {
-                                arrayList = (ArrayList<Mobile>) response.body().getMobile();
-                                pd.dismiss();
-                                dsnmae = arrayList.get(0).getSname();
-                                dgender = arrayList.get(0).getGender();
-                                dage = arrayList.get(0).getAge();
-                                dmobile = arrayList.get(0).getMobile();
-                                denroll = arrayList.get(0).getMobile();
-                                dinstitutename = arrayList.get(0).getInstitutename();
-                                sid = arrayList.get(0).getId();
+
+
+
                                 final Dialog dialog = new Dialog(getActivity());
                                 dialog.setContentView(R.layout.layout2);
                                 dialog.show();
@@ -237,13 +222,9 @@ public class new_pass1 extends android.app.Fragment implements ApiCallback {
                                 });
                             }
 
-                            @Override
-                            public void onFailure(Call<Contact> call, Throwable t) {
 
-                            }
-                        });
+
                 }
-            }
         });
         btn_bdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -440,11 +421,6 @@ public class new_pass1 extends android.app.Fragment implements ApiCallback {
         s_3 = s4;
         s_4 = s5;
         s_5 = s6;
-
-    }
-
-    @Override
-    public void onApiResultResponse(String responseString) {
 
     }
 

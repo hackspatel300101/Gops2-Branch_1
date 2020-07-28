@@ -19,8 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chintu.Gops.APIClient;
-import com.example.chintu.Gops.APIinterface;
 import com.example.chintu.Gops.R;
 import com.squareup.picasso.Picasso;
 
@@ -28,10 +26,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import Model.ResultPass;
-import Model.ResultShowPRofile;
-import Model.Showprofile;
 import hari.bounceview.BounceView;
 import instamojo.library.InstamojoPay;
 import instamojo.library.InstapayListener;
@@ -159,7 +153,7 @@ public class Renewal_pass extends android.app.Fragment {
             @Override
             public void onClick(View v) {
                 int fare = 100;
-                insertdata(s0, destination, mobile, String.valueOf(fare));
+
 
 
             }
@@ -168,20 +162,6 @@ public class Renewal_pass extends android.app.Fragment {
 
     }
 
-    public void insertdata(String source, String destination, String fare, String mobile) {
-        APIinterface apIinterface = APIClient.getClient().create(APIinterface.class);
-        Call<ResultPass> call = apIinterface.insertRenew(source, destination, fare, mobile);
-        call.enqueue(new Callback<ResultPass>() {
-            @Override
-            public void onResponse(Call<ResultPass> call, Response<ResultPass> response) {
-                Toast.makeText(getActivity(), "Renewd Successfully", Toast.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onFailure(Call<ResultPass> call, Throwable t) {
-
-            }
-        });
-    }
 
 }

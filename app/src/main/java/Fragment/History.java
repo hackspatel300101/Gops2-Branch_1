@@ -19,8 +19,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chintu.Gops.APIClient;
-import com.example.chintu.Gops.APIinterface;
 import com.example.chintu.Gops.R;
 
 import java.sql.BatchUpdateException;
@@ -29,10 +27,7 @@ import java.util.ArrayList;
 import javax.xml.transform.Source;
 
 import Adapter.CustomeAdpter;
-import Model.Insertnewpas;
-import Model.ResultRegistration;
-import Model.ResultShowPRofile;
-import Model.Showprofile;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,10 +41,9 @@ public class History extends android.app.Fragment {
     TextView tv;
     ImageView iv;
 
-    ArrayList<Insertnewpas> arrayList;
 
     String mobile;
-    ArrayList<Showprofile> arrayList1;
+
     ProgressDialog pd;
 
     @Override
@@ -63,8 +57,7 @@ public class History extends android.app.Fragment {
         tv = v.findViewById(R.id.title11);
         iv = v.findViewById(R.id.history);
         lv = v.findViewById(R.id.pass);
-        arrayList = new ArrayList<>();
-        arrayList1 = new ArrayList<>();
+
         pd = new ProgressDialog(getActivity());
         AnimationUtils animationUtils = new AnimationUtils();
         Animation animation = animationUtils.loadAnimation(getActivity(), R.anim.left);
@@ -90,30 +83,7 @@ public class History extends android.app.Fragment {
 
         pd.setMessage("Loading...");
         pd.show();
-        APIinterface apIinterface = APIClient.getClient().create(APIinterface.class);
-        Call<ResultShowPRofile> call = apIinterface.getprofile(mobile);
-        call.enqueue(new Callback<ResultShowPRofile>() {
-            @Override
-            public void onResponse(Call<ResultShowPRofile> call, Response<ResultShowPRofile> response) {
-                try {
-                    pd.dismiss();
-                    arrayList1 = (ArrayList<Showprofile>) response.body().getShowprofile();
-                    CustomeAdpter customeAdpter = new CustomeAdpter(getActivity(), arrayList1);
-                    lv.setAdapter(customeAdpter);
-                } catch (Exception e) {
-                    pd.dismiss();
-                    Toast.makeText(getActivity(), "Data not available", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResultShowPRofile> call, Throwable t) {
-                pd.dismiss();
-
-                Toast.makeText(getActivity(), "Data Not Found", Toast.LENGTH_SHORT).show();
-            }
-        });
-        return v;
+                return v;
 
     }
 

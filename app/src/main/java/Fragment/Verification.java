@@ -19,8 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chintu.Gops.APIClient;
-import com.example.chintu.Gops.APIinterface;
 import com.example.chintu.Gops.Home;
 import com.example.chintu.Gops.R;
 import com.goodiebag.pinview.Pinview;
@@ -34,8 +32,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.ArrayList;
 
-import Model.Otp;
-import Model.ResultOTP;
+
 import hari.bounceview.BounceView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,7 +52,6 @@ public class Verification extends android.app.Fragment {
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
     String number;
 
-    ArrayList<Otp> arrayList;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -71,7 +67,6 @@ public class Verification extends android.app.Fragment {
         pv = view.findViewById(R.id.pin_view);
         btn = view.findViewById(R.id.submitbtn);
         pd = new ProgressDialog(getActivity());
-        arrayList = new ArrayList<>();
         AnimationUtils animationUtils = new AnimationUtils();
         Animation animation = animationUtils.loadAnimation(getActivity(), R.anim.slide_down);
         Animation animation1 = animationUtils.loadAnimation(getActivity(), R.anim.slide_down);
@@ -126,7 +121,7 @@ public class Verification extends android.app.Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             pd.dismiss();
-                            InsertMobile(number);
+
                             Toast.makeText(getActivity(), "Correct OTP", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getActivity(), Home.class);
                             startActivity(i);
@@ -171,28 +166,7 @@ public class Verification extends android.app.Fragment {
         };
     }
 
-    public void InsertMobile(String mobile) {
-        APIinterface apIinterface = APIClient.getClient().create(APIinterface.class);
-        Call<ResultOTP> call = apIinterface.insertotp(mobile);
-        call.enqueue(new Callback<ResultOTP>() {
-            @Override
-            public void onResponse(Call<ResultOTP> call, Response<ResultOTP> response) {
-                arrayList = (ArrayList<Otp>) response.body().getOtp();
-                Log.e("uid", arrayList.get(0).getId());
-                String uid = arrayList.get(0).getId();
-                SharedPreferences preferences = getActivity().getSharedPreferences("datadata", Context.MODE_PRIVATE);
-                SharedPreferences.Editor ed = preferences.edit();
-                ed.putString("otp", uid);
-                ed.apply();
-                Log.e("UID", uid);
-            }
 
-            @Override
-            public void onFailure(Call<ResultOTP> call, Throwable t) {
-
-            }
-        });
-    }
 
 
 }

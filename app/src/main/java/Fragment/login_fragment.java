@@ -18,8 +18,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chintu.Gops.APIClient;
-import com.example.chintu.Gops.APIinterface;
 import com.example.chintu.Gops.R;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +26,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-import Model.Otp;
+
 import hari.bounceview.BounceView;
 import retrofit2.Call;
 import retrofit2.Callback;

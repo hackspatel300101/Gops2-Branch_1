@@ -2,10 +2,8 @@ package Fragment;
 
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -22,12 +20,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.chintu.Gops.PropertyData;
 import com.example.chintu.Gops.R;
-import com.example.chintu.Gops.WEbService.DataMultiPart;
-import com.example.chintu.Gops.WEbService.WebService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -212,66 +206,6 @@ public class Summary extends android.app.Fragment {
 
 
 
-    @SuppressWarnings("CollectionAddAllCanBeReplacedWithConstructor")
-    public void callAPiUploadFile() {
 
-        String API = "/Registration.php";
-        WebService webService = new WebService();
-        DataMultiPart dataMultiPart = new DataMultiPart();
-
-        /*String source,destination,pass_type,insti_name,ernoll_gr,uname,addr1,town_city,area,dist,pincode,
-                u_birthdate,gender,u_idname,u_idnumber,bus_type,duration;*/
-
-        Gson gson = new Gson();
-        PropertyData propertyData = new PropertyData();
-        propertyData.setSource(s0);
-        propertyData.setDestination(d0);
-        propertyData.setBus_type(b_type);
-        propertyData.setPass_type(p_type);
-        propertyData.setDuration(duration);
-        propertyData.setUname(n0);
-        propertyData.setGender(g_ender);
-        propertyData.setU_birthdate(b_Date);
-        propertyData.setU_idname(idproof);
-        propertyData.setU_idnumber(i_n0);
-        propertyData.setAddr1(address);
-        propertyData.setTown_city(city);
-        propertyData.setPincode(pincode);
-        propertyData.setArea(area);
-        propertyData.setInsti_name("Praxware");
-        propertyData.setErnoll_gr("999999");
-        propertyData.setDist("Ahmedabad");
-        propertyData.setMstdate(date);
-        propertyData.setOtp(mobile);
-
-        Map<String, String> retMap = gson.fromJson(
-                gson.toJson(propertyData),
-                new TypeToken<HashMap<String, String>>() {
-                }.getType()
-        );
-
-        dataMultiPart.setParams(retMap);
-        ArrayList<String> imageListTemp = new ArrayList<>();
-        imageListTemp.addAll(imageList);
-
-        ArrayList<String> listImageKey = new ArrayList<>();
-        for (int i = 0; i < imageList.size(); i++) {
-            listImageKey.add("uploaded_file");
-            listImageKey.add("uploaded_file1");
-            listImageKey.add("uploaded_file2");
-        }
-
-
-        dataMultiPart.setMultiFilePathKey(listImageKey);
-        dataMultiPart.setMultiFilePath(imageListTemp);
-        try {
-            String ApiResponse = webService.callApi(dataMultiPart, null, API, getActivity(), true);
-            Log.e("APIRESPOBSE", "SUCCESS=" + ApiResponse);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            Log.e("APIRESPOBSE", "Failure=" + e.toString());
-        }
-
-    }
 
 }

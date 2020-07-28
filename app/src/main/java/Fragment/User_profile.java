@@ -19,8 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chintu.Gops.APIClient;
-import com.example.chintu.Gops.APIinterface;
 import com.example.chintu.Gops.Home;
 import com.example.chintu.Gops.R;
 import com.squareup.picasso.Picasso;
@@ -28,8 +26,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import Adapter.CustomeAdpter;
-import Model.ResultShowPRofile;
-import Model.Showprofile;
+
 import hari.bounceview.BounceView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,7 +42,7 @@ public class User_profile extends android.app.Fragment {
     LinearLayout l1, l2, l3, l4, l5, l6;
     Button btn4;
     String mobile;
-    ArrayList<Showprofile> arrayList;
+
     ProgressDialog pd;
 
     @Override
@@ -72,7 +69,7 @@ public class User_profile extends android.app.Fragment {
         tv4 = v.findViewById(R.id.idproof_profile);
         tv5 = v.findViewById(R.id.id_number_profile);
         tv6 = v.findViewById(R.id.add_profile);
-        arrayList = new ArrayList<>();
+
         pd = new ProgressDialog(getActivity());
 
         AnimationUtils animationUtils = new AnimationUtils();
@@ -115,41 +112,7 @@ public class User_profile extends android.app.Fragment {
         pd.setMessage("Loading...");
         pd.show();
 
-        APIinterface apIinterface = APIClient.getClient().create(APIinterface.class);
-        Call<ResultShowPRofile> call = apIinterface.getprofile(mobile);
-        call.enqueue(new Callback<ResultShowPRofile>() {
-            @Override
-            public void onResponse(Call<ResultShowPRofile> call, Response<ResultShowPRofile> response) {
-                try {
-                    arrayList = (ArrayList<Showprofile>) response.body().getShowprofile();
-                    String name = arrayList.get(0).getUname();
-                    String bdate = arrayList.get(0).getUBirthdate();
-                    String gender = arrayList.get(0).getGender();
-                    String idname = arrayList.get(0).getUIdname();
-                    String idnumber = arrayList.get(0).getUIdnumber();
-                    String address = arrayList.get(0).getAddr1();
-                    String img1 = arrayList.get(0).getImg1();
-                    String img2 = arrayList.get(0).getImg2();
-                    Picasso.with(getActivity()).load(img1).into(iv1);
-                    Picasso.with(getActivity()).load(img2).into(iv2);
-                    tv1.setText(name);
-                    tv2.setText(bdate);
-                    tv3.setText(gender);
-                    tv4.setText(idname);
-                    tv5.setText(idnumber);
-                    tv6.setText(address);
-                    pd.dismiss();
-                } catch (Exception e) {
-                    pd.dismiss();
-                    Toast.makeText(getActivity(), "Data Not Available", Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ResultShowPRofile> call, Throwable t) {
-
-            }
-        });
         return v;
     }
 }
