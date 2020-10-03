@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chintu.Gops.Home;
+import Model.User;
 import com.example.chintu.Gops.R;
 import com.goodiebag.pinview.Pinview;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,14 +30,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-
-import java.util.ArrayList;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 import hari.bounceview.BounceView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Verification extends android.app.Fragment {
     Button btn;
@@ -48,7 +46,7 @@ public class Verification extends android.app.Fragment {
     String verificationCode;
     String v1;
     ProgressDialog pd;
-
+    private  String NODE_USER= "User";
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
     String number;
 
@@ -77,7 +75,7 @@ public class Verification extends android.app.Fragment {
         tv1.startAnimation(animation1);
 
         btn.startAnimation(animation3);
-
+        auth=FirebaseAuth.getInstance();
 
         Bundle b = getArguments();
         v1 = b.getString("otp");
@@ -121,7 +119,7 @@ public class Verification extends android.app.Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             pd.dismiss();
-
+                            SaveUser();
                             Toast.makeText(getActivity(), "Correct OTP", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getActivity(), Home.class);
                             startActivity(i);
@@ -136,6 +134,22 @@ public class Verification extends android.app.Fragment {
                         }
                     }
                 });
+    }
+
+    private void SaveUser() {
+        String mnumber=auth.getCurrentUser().getPhoneNumber();
+        User user = new User(mnumber);
+        DatabaseReference dbuser = FirebaseDatabase.getInstance().getReference(NODE_USER);
+        dbuser.child(auth.getCurrentUser().getUid())
+                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                if (task.isSuccessful()){
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void StartFirebaseLogin() {

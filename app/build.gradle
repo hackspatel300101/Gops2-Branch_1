@@ -41,7 +41,6 @@ dependencies {
     implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.google.firebase:firebase-core:11.8.0'
-    implementation 'com.google.firebase:firebase-auth:11.8.0'
     implementation 'com.github.mmoamenn:AnimationsPlus:1.0.0'
     implementation 'hari.bounceview:bounceview:0.1.0'
     implementation 'com.github.GoodieBag:Pinview:v1.3'
@@ -53,6 +52,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.karumi:dexter:5.0.0'
     implementation 'com.paytm:pgplussdk:1.2.3'
-
+    implementation 'com.google.firebase:firebase-database:16.0.4'
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
 }
 apply plugin: 'com.google.gms.google-services'
